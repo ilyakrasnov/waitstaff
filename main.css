@@ -1,0 +1,51 @@
+body {
+  font-family: monaco, Consolas, 'Lucida Console', monospace;
+}
+
+.container {
+  width: 775px;
+  height: 400px;
+  position: center;
+  margin: auto;
+}
+
+.col {
+  width:350px;
+  float: left;
+}
+
+.mealDetails {
+  width: 375px;
+  height: 400px;
+}
+.earnings, .customerCharges, .mealDetails {
+  border: 2px solid black;
+}
+
+.earnings, .customerCharges {
+  margin-left: 50px;
+  height: 190px;
+}
+
+.customerCharges {
+  margin-bottom: 15px;
+}
+
+.tableTitle {
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+label {
+  padding-left: 15px;
+  font-size: 16px;
+  display: inline-block;
+  width: 175px;
+  text-align: right;
+}
+
+.buttons {
+  padding-top: 25px;
+  text-align: center;
+  margin: auto;
+}
