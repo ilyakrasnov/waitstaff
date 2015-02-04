@@ -26,10 +26,10 @@
                                                   meal.basePrice = meal.basePrice;
                                                   meal.taxRate = meal.taxRate;
                                                   meal.tipPercentage = meal.tipPercentage;
-                                                  calculateCharges()">Submit</button>
-                  <button>Cancel</button>
+                                                  calculateCharges();
+                                                  addEarnings()">Submit</button>
+                  <button ng-class="mealDetails.$setUntouched()">Cancel</button>
 
-                  <pre>{{customerCharges | json}}</pre>
                 </div>
             </form>
           </div>
