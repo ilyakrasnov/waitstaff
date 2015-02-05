@@ -2,6 +2,10 @@ body {
   font-family: monaco, Consolas, 'Lucida Console', monospace;
 }
 
+h1 {
+    text-align: center;
+}
+
 .container {
   width: 775px;
   height: 400px;

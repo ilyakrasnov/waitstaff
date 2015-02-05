@@ -9,7 +9,7 @@ angular.module('waitstaff',[])
       basePrice:"",
       taxRate:"",
       tipPercentage:""
-    }
+    };
 
     $scope.customerCharges = {
       subtotal:"",
@@ -18,8 +18,8 @@ angular.module('waitstaff',[])
     };
 
     $scope.earnings = {
-      totalTip:0.0,
-      mealCount: 0
+      totalTip:"",
+      mealCount:0
     };
 
     $scope.calculateCharges = function() {
@@ -29,16 +29,24 @@ angular.module('waitstaff',[])
     };
 
     $scope.addEarnings = function() {
-      $scope.earnings.totalTip += $scope.customerCharges.total;
-      avgTip();
+      $scope.earnings.totalTip += $scope.customerCharges.tip;
+      $scope.avgTip();
     };
 
-    var initialCharges = $scope.customerCharges;
-    var initialEarnings = $scope.earnings;
+    var initialCharges = angular.copy($scope.customerCharges);
+    var initialEarnings = angular.copy($scope.earnings);
+    var initialMeal = angular.copy($scope.meal);
+
+    $scope.clearForm = function(){
+      $scope.meal = initialMeal;
+      $scope.waiterForm.$setPristine();
+    };
 
     $scope.reset = function() {
       $scope.customerCharges = initialCharges;
       $scope.earnings = initialEarnings;
+      $scope.meal = initialMeal;
+      $scope.waiterForm.$setPristine();
     };
   }]);
 
