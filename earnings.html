@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="earnings">
+    <h2 class="tableTitle">My Earnings</h2>
+    <label name="email">Tip Total: </label>{{ earnings.totalTip | number:2}}
+    <label name="email">Meal Count: </label>{{ earnings.mealCount | number}}
+    <label name="email">Avg Tip Per meal: </label>{{ avgTip() | number:2 }}
+
+
+    <button ng-click="reset()">Reset</button>
+  </div>
+</div>

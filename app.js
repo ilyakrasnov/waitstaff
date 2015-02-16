@@ -1,24 +1,41 @@
-angular.module('waitstaff',[])
+angular.module('waitstaff', ['ngRoute'])
+  .config(['$routeProvider', function($routeProvider){
+      $routeProvider.when('/', {
+          templateUrl : 'home.html',
+      })
+      .when('/new_meal', {
+          templateUrl : 'new-meal.html',
+          controller : 'mainCtrl'
+      })
+      .when('/earnings', {
+          templateUrl : 'earnings.html',
+          controller : 'mainCtrl'
+      })
+      .when('/error', {
+          template : '<p>Error Page Not Found</p>'
+      })
+      .otherwise('/error');
+  }])
   .controller('mainCtrl', ['$scope', function($scope) {
 
     $scope.avgTip = function(){
       return $scope.earnings.totalTip/$scope.earnings.mealCount || 0;
     };
 
-    $scope.meal = {
+    var meal = {
       basePrice:"",
       taxRate:"",
       tipPercentage:""
     };
 
-    $scope.customerCharges = {
+    var  customerCharges = {
       subtotal:"",
       tip:"",
       total:""
     };
 
-    $scope.earnings = {
-      totalTip:"",
+    var earnings = {
+      totalTip:0,
       mealCount:0
     };
 
@@ -33,20 +50,20 @@ angular.module('waitstaff',[])
       $scope.avgTip();
     };
 
-    var initialCharges = angular.copy($scope.customerCharges);
-    var initialEarnings = angular.copy($scope.earnings);
-    var initialMeal = angular.copy($scope.meal);
+    $scope.customerCharges = _.clone(customerCharges);
+    $scope.earnings = _.clone(earnings);
+    $scope.meal = _.clone(meal);
 
     $scope.clearForm = function(){
-      $scope.meal = initialMeal;
+      console.log(meal);
+      $scope.meal = _.clone(meal);
       $scope.waiterForm.$setPristine();
     };
 
     $scope.reset = function() {
-      $scope.customerCharges = initialCharges;
-      $scope.earnings = initialEarnings;
-      $scope.meal = initialMeal;
-      $scope.waiterForm.$setPristine();
+      $scope.customerCharges = _.clone(customerCharges);
+      $scope.earnings = _.clone(earnings);
+      $scope.clearForm();
     };
   }]);
 

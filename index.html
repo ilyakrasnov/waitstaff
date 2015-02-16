@@ -6,55 +6,20 @@
     <title>Waitstaff Calculator</title>
 </head>
 <body>
-      <h1>Waitstaff Calculator</h1>
-      <div class="container">
-        <div ng-controller="mainCtrl">
-        <div class="col">
-          <div class="mealDetails">
-            <h2 class="tableTitle">Meal Details</h2>
-            <form name="waiterForm" novalidate>
-                <label name="email">Meal Base Price: $</label>
-                <input type="text" name="basePrice" ng-model="meal.basePrice"><br>
+  <div class="container">
+    <h1>Waitstaff Calculator</h1>
+    <a href="#/">Home</a>
+    <a href="#/new_meal">New Meal</a>
+    <a href="#/earnings">My Earnings</a>
 
-                <label name="email">Tax Rate: %</label>
-                <input type="text" name="taxRate" ng-model="meal.taxRate"><br>
+        <div ng-view></div>
 
-                <label name="email">Tip Percentage: %</label>
-                <input type="text" name="tipPercentage" ng-model="meal.tipPercentage"><br>
-                <div class="buttons">
-                  <button type="submit" ng-click="earnings.mealCount = earnings.mealCount + 1;
-                                                  meal.basePrice = meal.basePrice;
-                                                  meal.taxRate = meal.taxRate;
-                                                  meal.tipPercentage = meal.tipPercentage;
-                                                  calculateCharges();
-                                                  addEarnings();
-                                                  clearForm()">Submit</button>
-                  <button ng-click="clearForm()">Cancel</button>
-                  <pre>{{ meal | json }}</pre>
-                </div>
-            </form>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="customerCharges">
-            <h2 class="tableTitle">Customer Charges</h2>
-            <label name="email">Subtotal: </label>{{ customerCharges.subtotal | number:2 }}
-            <label name="email">Tip: </label>{{ customerCharges.tip | number:2 }}
-            <label name="email">Total: </label>{{ customerCharges.total | number:2 }}
-
-          </div>
-          <div class="earnings">
-            <h2 class="tableTitle">My Earnings</h2>
-            <label name="email">Tip Total: </label>{{ earnings.totalTip | number:2}}
-            <label name="email">Meal Count: </label>{{ earnings.mealCount | number}}
-            <label name="email">Avg Tip Per meal: </label>{{ avgTip() | number:2 }}
-          </div>
-        </div>
-      <button ng-click="reset()">Reset</button>
-      </div>
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
     <script type="text/javascript" src="app.js"></script>
+  </div>
+
 </body>
 </html>

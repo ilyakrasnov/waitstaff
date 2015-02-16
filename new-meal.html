@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="mealDetails">
+    <h2 class="tableTitle">Meal Details</h2>
+
+    <form name="waiterForm" novalidate>
+        <label name="email">Meal Base Price: $</label>
+        <input type="text" name="basePrice" ng-model="meal.basePrice"><br>
+
+        <label name="email">Tax Rate: %</label>
+        <input type="text" name="taxRate" ng-model="meal.taxRate"><br>
+
+        <label name="email">Tip Percentage: %</label>
+        <input type="text" name="tipPercentage" ng-model="meal.tipPercentage"><br>
+        <div class="buttons">
+          <button type="submit" ng-click="earnings.mealCount = earnings.mealCount + 1;
+                                          calculateCharges();
+                                          addEarnings();
+                                          clearForm()">Submit</button>
+          <button ng-click="clearForm()">Cancel</button>
+          <pre>{{ meal | json }}</pre>
+        </div>
+    </form>
+  </div>
+
+  <div class="customerCharges">
+    <h2 class="tableTitle">Customer Charges</h2>
+    <label name="email">Subtotal: </label>{{ customerCharges.subtotal | number:2 }}
+    <label name="email">Tip: </label>{{ customerCharges.tip | number:2 }}
+    <label name="email">Total: </label>{{ customerCharges.total | number:2 }}
+  </div>
+</div>

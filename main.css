@@ -7,10 +7,9 @@ h1 {
 }
 
 .container {
+  margin-left: auto;
+  margin-right: auto;
   width: 775px;
-  height: 400px;
-  position: center;
-  margin: auto;
 }
 
 .col {
@@ -18,21 +17,13 @@ h1 {
   float: left;
 }
 
-.mealDetails {
+.mealDetails, .customerCharges, .earnings {
   width: 375px;
-  height: 400px;
-}
-.earnings, .customerCharges, .mealDetails {
   border: 2px solid black;
 }
 
-.earnings, .customerCharges {
-  margin-left: 50px;
-  height: 190px;
-}
-
 .customerCharges {
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .tableTitle {
